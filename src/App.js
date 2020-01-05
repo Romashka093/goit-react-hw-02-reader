@@ -1,5 +1,7 @@
 import React from 'react';
+import Reader from './Reader/Reader';
+import publications from './../src/publications.json';
 
-const App = () => <></>;
+const App = () => <Reader items={publications} />;
 
 export default App;
