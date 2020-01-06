@@ -1,14 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Progress = ({ step, currentPage, totalPages }) => (
-  <>
-    <p>
-      {currentPage}/{totalPages}
-    </p>
-  </>
-);
+const Progress = ({ publicationIndex, items }) => {
+  return (
+    <>
+      <p>
+        {publicationIndex + 1}/{items.length}
+      </p>
+    </>
+  );
+};
+
+Progress.propTypes = {
+  publicationIndex: PropTypes.number.isRequired,
+  items: PropTypes.array,
+};
 
 export default Progress;
-
-// {step('currentPage')}/{step('totalPages')}
-// currentPage = текущий активный индекс/ totalPages = length [] = длянна массива

@@ -7,8 +7,7 @@ import Publication from './publication/Publication';
 export default class Reader extends Component {
   static defaultProps = {
     step: 1,
-    publicationIndex: 1,
-    // items: [Object],
+    publicationIndex: 0,
   };
   static propTypes = {
     step: PropTypes.number,
@@ -22,27 +21,16 @@ export default class Reader extends Component {
     this.setState(prevState => {
       return { publicationIndex: prevState.publicationIndex - this.props.step };
     });
-    console.log('props', this.props);
-    console.log('state', this.state);
   };
 
   onNextClick = () => {
     this.setState(prevState => {
       return { publicationIndex: prevState.publicationIndex + this.props.step };
     });
-    console.log('props', this.props);
-    console.log('state', this.state);
   };
 
-  // currentPage = () => {
-  //   console.log('state', this.props.items);
-  // };
-  // totalPages = () => {
-  //   console.log('state', this.props.items);
-  // };
-
   render() {
-    const { step } = this.props;
+    const { items } = this.props;
     const { publicationIndex } = this.state;
     return (
       <>
@@ -50,11 +38,11 @@ export default class Reader extends Component {
           publicationIndex={publicationIndex}
           onPrevClick={this.onPrevClick}
           onNextClick={this.onNextClick}
-          // prevBtnDisabled={}
-          // nextBtnDisabled={}
+          prevBtnDisabled={publicationIndex === 0}
+          nextBtnDisabled={publicationIndex === items.length - 1}
         />
-        <Progress step={step} currentPage={publicationIndex} totalPages={12} />
-        <Publication id={this.id} title={this.title} text={this.text} />
+        <Progress publicationIndex={publicationIndex} items={items} />
+        <Publication publication={items[publicationIndex]} />
       </>
     );
   }
