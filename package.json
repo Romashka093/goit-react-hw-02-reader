@@ -1,5 +1,5 @@
 {
-  "name": "goit-react-hw-02-reader",
+  "name": "goit-react-hw-02-reader-19",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,5 +40,5 @@
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1"
   },
-  "homepage": " https://romashka093.github.io/goit-react-hw-02-reader/"
+  "homepage": " https://romashka093.github.io/goit-react-hw-02-reader-19/"
 }
